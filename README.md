@@ -52,6 +52,10 @@ fetch_filtered_pubg_player_stats("lazyjustin", region = "na", match = "duo", sea
 
 Special thanks to https://pubgtracker.com/ for all server functionality and public API.
 
+Thanks to Jeroen Ooms and the jsonlite package:
+
+Jeroen Ooms (2014). The jsonlite Package: A Practical and Consistent Mapping Between JSON Data and R Objects. arXiv:1403.2805 [stat.CO] URL https://arxiv.org/abs/1403.2805.
+
 ## License
 
 MIT - Justin B Moore, 2017
