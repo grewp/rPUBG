@@ -1,0 +1,12 @@
+Package: rPUBG
+Title: Allows Easy API Calls to the PUBGTRACKER API
+Version: 1.0.0
+Authors@R: person("Justin", "Moore", email = "justinbrantlymoore@gmail.com", role = c("aut", "cre"))
+Description: pubgtracker.com hosts a public API for fetching PUBG player statistics. This R-wrapper allows users to easily make API calls and receive stats in an R friendly format
+Depends: R (>= 3.3.3)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: jsonlite (>= 1.5)
+RoxygenNote: 6.0.1.9000
+
