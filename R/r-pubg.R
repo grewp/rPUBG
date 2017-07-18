@@ -1,5 +1,3 @@
-library(jsonlite)
-
 #' Set API Key
 #'
 #' This function allows you to set your pubgtracker API key. It should be called prior to making any API calls.
@@ -38,7 +36,7 @@ fetch_pubg_player_stats <- function(pubgNickname) {
   }
 
   # If we have a 200, try to parse the result (JSON)
-  json <- fromJSON(httr::content(response, "text"))
+  json <- jsonlite::fromJSON(httr::content(response, "text"))
   return(json)
 }
 
@@ -68,7 +66,7 @@ find_pubg_player_by_steam_id_64 <- function(steam_id) {
   }
 
   # If we have a 200, try to parse the result (JSON)
-  json <- fromJSON(httr::content(response, "text"))
+  json <- jsonlite::fromJSON(httr::content(response, "text"))
   return(json)
 }
 
