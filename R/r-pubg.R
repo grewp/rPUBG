@@ -40,6 +40,36 @@ fetch_pubg_player_stats <- function(pubgNickname) {
   return(json)
 }
 
+#' Fetch Match History
+#'
+#' This function allows you to fetch match history for a single PUBG player. The player nickname is passed in as a parameter.
+#' @param pubgNickname The PUBG player nickname that you are requesting statistics for.
+#' @keywords stats, api, player
+#' @export
+#' @examples
+#' fetch_pubg_player_match_history("lazyjustin")
+fetch_pubg_player_match_history <- function(pubgNickname) {
+  if( !exists("api_key") ) {
+    print("Please specify a valid api key using the set_api_key function.")
+    return(?set_api_key)
+  }
+
+  url <- "https://api.pubgtracker.com/v2/matches/pc/"
+  fullURL <- paste0(url, pubgNickname)
+  response <- httr::GET(fullURL, httr::add_headers("TRN-Api-Key" = api_key))
+
+  # Check response code, if not 200, return error to user
+  response_code <- response$status_code
+  if(response_code != 200) {
+    print(paste0("HTTP Reponse: ", httr::http_status(response)$message))
+    return()
+  }
+
+  # If we have a 200, try to parse the result (JSON)
+  json <- jsonlite::fromJSON(httr::content(response, "text"))
+  return(json)
+}
+
 #' Search for player by Steam ID (64-bit)
 #'
 #' This function allows you to search for PUBG players by 64-bit Steam ID. The object returned contains metadata about the player.
